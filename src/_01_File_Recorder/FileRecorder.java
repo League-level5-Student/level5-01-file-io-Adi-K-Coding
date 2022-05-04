@@ -11,21 +11,14 @@ public class FileRecorder {
 
 		String userInput = JOptionPane.showInputDialog("Enter a message");
 		try {
-			FileWriter fw = new FileWriter("src/_00_Intro_To_File_Input_and_Output/test2.txt");
-			
-			/*
-			NOTE: To append to a file that already exists, add true as a second parameter when calling the
-			      FileWriter constructor.
-			      (e.g. FileWriter fw = new FileWriter("src/_00_Intro_To_File_Input_and_Output/test2.txt", true);)
-			*/
-			
-			fw.write("\nThis is me writing a message");
-				
+			FileWriter fw = new FileWriter("src/_00_Intro_To_File_Input_and_Output/test2.txt", true);
+
+			fw.write("\n" + userInput);
+
 			fw.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
+
 	}
 }
