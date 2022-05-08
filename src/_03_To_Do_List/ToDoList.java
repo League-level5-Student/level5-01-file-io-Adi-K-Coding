@@ -64,13 +64,15 @@ public class ToDoList implements ActionListener {
 			tasks.add(input);
 		});
 		viewTask.addActionListener(e -> {
+			System.out.println("\nView Tasks:\n");
 			for (int i = 0; i < tasks.size(); i++) {
 				System.out.println(tasks.get(i));
 			}
+			System.out.println("\nEnd View Tasks\n");
 		});
 		removeTask.addActionListener(e -> {
+			String remove = JOptionPane.showInputDialog("Enter the task you want to remove");
 			for (int i = 0; i < tasks.size(); i++) {
-				String remove = JOptionPane.showInputDialog("Enter the task you want to remove");
 				if (remove == tasks.get(i)) {
 					tasks.remove(i);
 				}
@@ -78,7 +80,7 @@ public class ToDoList implements ActionListener {
 		});
 		saveList.addActionListener(e -> {
 			try {
-				FileWriter fw = new FileWriter("src/test3.txt");
+				FileWriter fw = new FileWriter("src/text3.txt");
 				for (int i = 0; i < tasks.size(); i++) {
 					fw.write(tasks.get(i) + "\n");
 				}
@@ -89,7 +91,9 @@ public class ToDoList implements ActionListener {
 			}
 		});
 		loadList.addActionListener(e -> {
+			System.out.println("\nLoading List: \n");
 			loadListMethod();
+			System.out.println("\n\bEnd Loaded List: \n");
 		});
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -99,7 +103,7 @@ public class ToDoList implements ActionListener {
 	void loadListMethod() {
 		tasks.clear();
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("src/test3.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("src/text3.txt"));
 
 			String line = br.readLine();
 			while (line != null) {
@@ -123,3 +127,5 @@ public class ToDoList implements ActionListener {
 
 	}
 }
+
+//Copyright © 2019 Adi Khandelwal

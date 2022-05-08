@@ -66,3 +66,5 @@ public class FileDecryptor {
 		}
 	}
 }
+
+//Copyright © 2019 Adi Khandelwal
